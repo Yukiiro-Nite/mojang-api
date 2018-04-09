@@ -1,0 +1,14 @@
+{
+  "name": "mojang-api",
+  "version": "1.0.0",
+  "description": "provides functions to access the mojang api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Bryant",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^8.3.0"
+  }
+}
