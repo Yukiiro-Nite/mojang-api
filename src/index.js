@@ -1,7 +1,6 @@
 /*
 This interface was created using documentation here: http://wiki.vg/Mojang_API
  */
-const got = require('got');
 
 module.exports = {
   getStatus,
@@ -12,17 +11,28 @@ module.exports = {
   changeSkin,
   uploadSkin,
   resetSkin,
+  getBlockedServers,
   getStatistics
 };
+
+const got = require('got');
+const apiUrl = `https://api.mojang.com`;
+const sessionUrl = `https://sessionserver.mojang.com`;
 
 function getStatus() {
   console.log('getStatus is not yet implemented!');
   return Promise.reject('Not Implemented!');
 }
 
-function getUUID() {
-  console.log('getUUID is not yet implemented!');
-  return Promise.reject('Not Implemented!');
+function getUUID(username, time) {
+  let url = `${apiUrl}/users/profiles/minecraft/${username}`;
+
+  if(time) {
+    url += `?at=${time}`;
+  }
+
+  return got(url, { json: true })
+    .then(response => response.body);
 }
 
 function getUUIDs() {
@@ -52,6 +62,11 @@ function uploadSkin() {
 
 function resetSkin() {
   console.log('resetSkin is not yet implemented!');
+  return Promise.reject('Not Implemented!');
+}
+
+function getBlockedServers() {
+  console.log('getBlockedServers is not yet implemented!');
   return Promise.reject('Not Implemented!');
 }
 
